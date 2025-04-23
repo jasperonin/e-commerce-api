@@ -1,0 +1,23 @@
+{
+    "grades": [
+      { "id": "5231583", "name": "APAS", "grade": 2.6 },
+      { "id": "5231579", "name": "BELLITA", "grade": 2.6 },
+      { "id": "5231581", "name": "CLARO", "grade": 2.4 },
+      { "id": "5231596", "name": "CLARO", "grade": 1.4 },
+      { "id": "5231613", "name": "DELA CERNA", "grade": 2.6 },
+      { "id": "5231575", "name": "DIAMANTE", "grade": 2.7 },
+      { "id": "5211447", "name": "DUMDUM", "grade": 2.2 },
+      { "id": "5231620", "name": "GENTERONE", "grade": 2.7 },
+      { "id": "5231608", "name": "GIMONGALA", "grade": 2.7 },
+      { "id": "5231578", "name": "GUMERA", "grade": 2.6 },
+      { "id": "5231610", "name": "LEONES", "grade": 2.7 },
+      { "id": "5231577", "name": "MALANG", "grade": 2.6 },
+      { "id": "5231586", "name": "PADOR", "grade": 2.5 },
+      { "id": "5231609", "name": "SABALA", "grade": 2.7 },
+      { "id": "5231611", "name": "SERVIDOR", "grade": 2.4 },
+      { "id": "5231617", "name": "SILLAR", "grade": 2.7 },
+      { "id": "5231594", "name": "TABOTABO", "grade": 2.7 },
+      { "id": "5231598", "name": "TELLO", "grade": 2.5 },
+      { "id": "5231597", "name": "VILLANUEVA", "grade": 2.7 }
+    ]
+  }
