@@ -2,6 +2,7 @@ import express from "express";
 import sequelize from './db/db.js';
 import userRoutes from './routes/user-creation.js'
 import loginRoute from './routes/login-route.js';
+import productRoute from './routes/product-route.js';
 
 const PORT = 3000;
 const app = express();
@@ -15,6 +16,7 @@ app.get('/', (_req,res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/login',loginRoute);
+app.use('/api/products',productRoute);
 
 const startServer = async() => {
   try {
