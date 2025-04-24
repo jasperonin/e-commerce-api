@@ -13,7 +13,7 @@ export const validateApiKey = (req, res, next) => {
   const token = header.split(" ")[1];
 
   try {
-    const decode = jwt.verify(token, "ecommerce-secret-key-code");
+    const decode = jwt.verify(token, env.process.JWT_SECRET_CODE);
 
     if (decode.role !== "admin") {
       return res.status(403).json({ message: `Not an Admin` });
