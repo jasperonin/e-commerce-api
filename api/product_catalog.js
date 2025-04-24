@@ -56,6 +56,7 @@ export const deleteProductById = async (req, res) => {
   }
 };
 
+// create new product
 export const addProduct = async (req, res) => {
   try {
     const {
@@ -79,6 +80,32 @@ export const addProduct = async (req, res) => {
     });
 
     res.status(201).json({ message: `Product successfully created!`, product });
+  } catch (err) {
+    res.status(500).json({ message: `Something went wrong ${err}` });
+  }
+};
+
+// update product by Id
+export const updateProduct = async (req, res) => {
+  const { name, description, price, stock, image_url } = req.body;
+  try {
+    const product = await Product.findOne({
+      where: { id: req.params.id },
+    });
+
+    if (!product) {
+      res.status(404).json({ message: `Unable to find product!` });
+    } else {
+      await product.update({
+        name,
+        description,
+        price,
+        stock,
+        image_url,
+      });
+      res.status(200).json({ message: `Product Successfully Updated!` });
+    }
+    res.status(201).json({ message: `Successfully Updated!`, product });
   } catch (err) {
     res.status(500).json({ message: `Something went wrong ${err}` });
   }
