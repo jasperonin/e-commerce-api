@@ -21,7 +21,9 @@ const Orders = sequelize.define(
     },
     {
       timestamps: true,
-      createdAt: 'created_at'
+      createdAt: 'created_at',
+      updatedAt: false,
+      UserId: false
     }
   );
   

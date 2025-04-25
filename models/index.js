@@ -15,8 +15,8 @@ const models = {
 
 //user model
 
-User.hasMany(Order);
-Order.belongsTo(User);
+Order.belongsTo(User, { foreignKey: 'user_id', onDelete: 'CASCADE' })
+User.hasMany(Order, { foreignKey: 'user_id' })
 
 orderItem.belongsTo(Order, { foreignKey: 'order_id' });
 Order.hasMany(orderItem, { foreignKey: 'order_id' });

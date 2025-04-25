@@ -23,6 +23,5 @@ const User = sequelize.define(
   }
 );
 
-// Associations
 
 export default User;
