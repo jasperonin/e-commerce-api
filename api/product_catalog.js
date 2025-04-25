@@ -49,10 +49,10 @@ export const deleteProductById = async (req, res) => {
       res.status(404).json({ message: `Product not found!` });
     } else {
       await product.destroy();
-      res.status(200).json({ message: `Product Successfully Deleted!` });
+      return res.status(200).json({ message: `Product Successfully Deleted!` });
     }
   } catch (err) {
-    res.status(500).json({ message: `Something went wrong ${err}` });
+    return res.status(500).json({ message: `Something went wrong ${err}` });
   }
 };
 
@@ -79,9 +79,9 @@ export const addProduct = async (req, res) => {
       CategoryId,
     });
 
-    res.status(201).json({ message: `Product successfully created!`, product });
+    return res.status(201).json({ message: `Product successfully created!`, product });
   } catch (err) {
-    res.status(500).json({ message: `Something went wrong ${err}` });
+    return res.status(500).json({ message: `Something went wrong ${err}` });
   }
 };
 
@@ -103,10 +103,9 @@ export const updateProduct = async (req, res) => {
         stock,
         image_url,
       });
-      res.status(200).json({ message: `Product Successfully Updated!` });
     }
-    res.status(201).json({ message: `Successfully Updated!`, product });
+    return res.status(200).json({ message: `Successfully Updated!`, product });
   } catch (err) {
-    res.status(500).json({ message: `Something went wrong ${err}` });
+    res.status(500).json({ message: `Something went wrong ${err.message}` });
   }
 };
