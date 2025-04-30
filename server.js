@@ -5,6 +5,7 @@ import loginRoute from './routes/login-route.js';
 import productRoute from './routes/product-route.js';
 import apiRoute from './routes/api-routes.js';
 import orderRoute from './routes/order-routes.js';
+import cartRoute from './routes/cart-routes.js';
 
 const app = express();
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use('/api/login', loginRoute);
 app.use('/api/products', productRoute);
 app.use('/api', apiRoute);
 app.use('/api/orders', orderRoute);
+app.use('/api/cart',cartRoute);
 
 // Export the app without starting the server
 export default app;

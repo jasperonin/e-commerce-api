@@ -1,32 +1,29 @@
 import { models } from "../models/index.js";
-import bcrypt from "bcrypt";
 
-const { User } = models;
+const { Cart } = models;
 
-export const login = async(req, res) => {
+export const getCart = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 10;
+    const currentPage = parseInt(req.query.page) || 1;
+    const offset = (currentPage - 1) * limit;
+    const cart = await Cart.findAndCountAll();
+    const totalCart = Math.ceil(cart.count / limit);
 
-    const { email, password } = req.body;
+    const cartPaginated = {
+      cart,
+      limit,
+      currentPage,
+      offset,
+      totalCart,
+    };
+    return res
+      .status(200)
+      .json({ message: `Cart successfully retrieved!`, cartPaginated });
 
-    try {
-        const user = await User.findOne({ where: {email}})
-
-        if(!user) {
-            res.status(400).json({message: `${user} cannot be found!`});
-        }
-        const isPasswordMatch = await bcrypt.compare(password,user.password_hash);
-        if(!isPasswordMatch) {
-            res.status(400).json({message: `${user} and ${password} mismatch`});
-        }
-        res.json({
-            message: `Login success!`,
-            user:{
-                id: user.id,
-                name: user.name,
-                email: user.email
-            }
-        })
-    } catch(err) {
-        res.status(500).json({ message: `Error during login ${err}`});
-    }
-
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ error_message: `Something went wrong ${err.message}` });
+  }
 };
